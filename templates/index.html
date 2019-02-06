@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+{% block title %}Buscar Clientes{% endblock %}
+
+{% block button %}
+    <a href="{{ url_for('clientes') }}"><button type="button" class="btn btn-success btn-lg" id="button-nav">Ver todos clientes</button></a>
+{% endblock %}
+
+{% block body %}
+
+<div class="container pt-5">
+    <form action="{{ url_for('buscar')}}" method="get">
+        <div class="form-group">
+            <label for="numero"><p class="font-weight-bolder mb-0">NÚMERO P/ CONTATO</p></label>
+            <input type="text" class="form-control border border-dark" id="numero" name="numero">
+        </div>
+        <input type="submit" class="btn btn-primary btn-lg " value="BUSCAR">
+    </form>
+</div>
+{% endblock %}

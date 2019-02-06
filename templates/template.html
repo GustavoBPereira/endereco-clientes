@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css')}}">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<div class="container pb-3 pt-2">
+{% block button %}{% endblock %}
+</div>
+{% block body %}{% endblock %}
+</body>
+</html>

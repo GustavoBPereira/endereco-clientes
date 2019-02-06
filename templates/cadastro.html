@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+{% block title %}Não encontrado{% endblock %}
+{% block body %}
+<div class="container">
+    <form action="{{ url_for('registrar')}}" method="post" enctype="multipart/form-data">
+    <form>
+        <div class="form-group">
+            <label for="nContato">Número para contato</label>
+            <input type="text" class="form-control" name="contato" id="contato" value="{{ numero }}">
+        </div>
+        <div class="form-group">
+            <label for="nome">Nome cliente</label>
+            <input type="text" class="form-control" name="nome" id="nome">
+        </div>
+        <div class="form-group">
+            <label for="Rua">Rua</label>
+            <input type="text" class="form-control" name="rua" id="rua">
+        </div>
+        <div class="form-group">
+            <label for="lote">Lote</label>
+            <input type="text" class="form-control" name="lote" id="lote">
+        </div>
+        <div class="form-group">
+            <label for="quadra">Quadra</label>
+            <input type="text" class="form-control" name="quadra" id="quadra">
+        </div>
+        <div class="form-group">
+            <label for="referencia">Referência</label>
+            <input type="text" class="form-control" name="referencia" id="referencia" value="Entre ">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+{% endblock %}
