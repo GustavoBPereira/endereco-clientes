@@ -8,30 +8,30 @@
 {% block body %}
 <div class="container">
     <form action="{{ url_for('alterar') }}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="gambiarra" id="gambiarra" value="{{ dados [0] }}">
+        <input type="hidden" name="numero_contato" id="numero_contato" value="{{ dados [1] }}">
         <div class="form-group">
             <label for="contato">Número para contato</label>
-            <input type="text" class="form-control" disabled="disabled" name="contato" id="contato" value="{{ dados[0] }}">
+            <input type="text" class="form-control" disabled="disabled" name="contato" id="contato" value="{{ dados[1] }}">
         </div>
         <div class="form-group">
             <label for="nome">Nome cliente</label>
-            <input type="text" class="form-control" name="nome" id="nome" value="{{ dados[1] }}">
+            <input type="text" class="form-control" name="nome" id="nome" value="{{ dados[2] }}">
         </div>
         <div class="form-group">
             <label for="Rua">Rua</label>
-            <input type="text" class="form-control" name="rua" id="rua" value="{{ dados[2] }}">
+            <input type="text" class="form-control" name="rua" id="rua" value="{{ dados[3] }}">
         </div>
         <div class="form-group">
             <label for="lote">Lote</label>
-            <input type="text" class="form-control" name="lote" id="lote" value="{{ dados[3] }}">
+            <input type="text" class="form-control" name="lote" id="lote" value="{{ dados[4] }}">
         </div>
         <div class="form-group">
             <label for="quadra">Quadra</label>
-            <input type="text" class="form-control" name="quadra" id="quadra" value="{{ dados[4] }}">
+            <input type="text" class="form-control" name="quadra" id="quadra" value="{{ dados[5] }}">
         </div>
         <div class="form-group">
             <label for="referencia">Referência</label>
-            <input type="text" class="form-control" name="referencia" id="referencia" value="{{ dados[5] }}">
+            <input type="text" class="form-control" name="referencia" id="referencia" value="{{ dados[6] }}">
         </div>
         <button type="submit" class="btn btn-warning">Alterar</button>
     </form>

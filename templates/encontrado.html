@@ -5,41 +5,41 @@
 {% block button %}
     <a href="{{ url_for('index') }}"><button type="button" class="btn btn-primary btn-lg" id="button-nav">Buscar</button></a>
 
-    <a href="{{ url_for('edicao', numero=dados[0]) }}"><button type="button" class="btn btn-warning btn-lg" id="button-nav">Editar</button></a>
+    <a href="{{ url_for('edicao', numero=dados[1]) }}"><button type="button" class="btn btn-warning btn-lg" id="button-nav">Editar</button></a>
 
-    <a href="{{ url_for('remover', numero=dados[0]) }}"><button type="button" class="btn btn-danger btn-lg" id="button-nav">Remover</button></a>
+    <a href="{{ url_for('remover', numero=dados[1]) }}"><button type="button" class="btn btn-danger btn-lg" id="button-nav">Remover</button></a>
 {% endblock %}
 
 {% block body %}
 <div class="container">
     <div class="row mx-md-n5">
         <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Número contato</p></div>
-        <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[0] }}</p></div>
-    </div>
-
-    <div class="row mx-md-n5">
-        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Nome</p></div>
         <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[1] }}</p></div>
     </div>
 
     <div class="row mx-md-n5">
-        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Rua</p></div>
+        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Nome</p></div>
         <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[2] }}</p></div>
     </div>
 
     <div class="row mx-md-n5">
-        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Lote</p></div>
+        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Rua</p></div>
         <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[3] }}</p></div>
     </div>
 
     <div class="row mx-md-n5">
-        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Quadra</p></div>
+        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Lote</p></div>
         <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[4] }}</p></div>
     </div>
 
     <div class="row mx-md-n5">
-        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Referência</p></div>
+        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Quadra</p></div>
         <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[5] }}</p></div>
+    </div>
+
+    <div class="row mx-md-n5">
+        <div class="col-2 py-3 px-md-5 border border-dark bg-light"><p class="font-weight-bolder">Referência</p></div>
+        <div class="col-10 py-3 px-md-5 border border-primary bg-light"><p class="font-weight-bolder">{{ dados[6] }}</p></div>
     </div>
 
 </div>
