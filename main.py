@@ -1,16 +1,8 @@
 from flask import Flask, render_template, url_for, request, redirect
-import mysql.connector
 from dao import Dados
 
-
-#CONFIGURAÇÃO DA CONEXÃO COM O MYSQL
-con = mysql.connector.connect(
-        user='gustavo',
-        password='',
-        database='clientes')
-db  = Dados(con)
+db  = Dados('clientes.db')
 #CLASSE DADOS RESPONSÁVEL PELOS CÓDIGOS SQL
-
 
 app = Flask(__name__)
 
@@ -28,7 +20,6 @@ def buscar():
 	if(numero == ''):
 		#SE NÃO DIGITOU NADA VOLTA PARA O INDEX
 		return render_template('index.html')
-	
 	#VARIAVEL ABAIXO É BOOLEANA
 	encontrado = db.buscar(numero)
 	if(encontrado):
@@ -60,24 +51,24 @@ def registrar():
 	#LÁ TEM CAMPOS DE EDIÇÃO E DELETE
 	return render_template('encontrado.html', dados=dados)
 
-@app.route('/edicao/<numero>')
+@app.route('/edicao/<numero>', methods=['GET',])
 def edicao(numero):
+	#SE CHEGA AQUI ATRAVÉS DE UM BTN DO TEMPLATE ENCONTRADO
 	#CAMPO DE EDIÇÃO
-	#A SINTAXE DA ROTA É UM POUCO DIFERENTE, COM <> ISSO EM FLASK É PARA PASSAR UMA VARIÁVEL DENTRO DA URL
 	dados  = db.buscar(str(numero))
 	return render_template('alterar.html', dados=dados)
 
 @app.route('/alterar', methods=['POST',])
 def alterar():
 	#AQUI SE CHEGA ATRAVES DO SUBMIT DO FORM DA ROTA EDICAO ACIMA
-	numero     = str(request.form['gambiarra'])
+	numero     = str(request.form['numero_contato'])
 	nome       = str(request.form['nome'])
 	rua        = str(request.form['rua'])
 	lote       = str(request.form['lote'])
 	quadra     = str(request.form['quadra'])
 	referencia = str(request.form['referencia'])
 	db.alterar(numero,nome,rua,lote,quadra,referencia)
-	dados = db.buscar(numero)
+	dados = db.buscar(str(numero))
 	return render_template('encontrado.html', dados=dados)
 
 @app.route('/clientes')
@@ -89,9 +80,12 @@ def clientes():
 
 @app.route('/remover/<numero>')
 def remover(numero):
+	### TODO ###
 	#AQUI SE CHEGA QUANDO VOCÊ ENCONTRA UM CLIENTES
 	#E NAQUELE TEMPLATE VAI TER UM BUTTON REMOVER QUE MANDA PARA CA
 	#A VAR NUMERO É O IDENTIFICADOR DESTE REGISTRO
 	db.remover(numero)
 	return render_template('index.html')
 
+if __name__ == "__main__":
+	app.run(debug=True)
